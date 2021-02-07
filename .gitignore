@@ -3,6 +3,7 @@
 ormconfig.json
 /coverage/
 backend-deploy.pem
+backend-deploy.pem:Zone.Identifier
 
 # compiled output
 /dist
