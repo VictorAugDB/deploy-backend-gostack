@@ -2,6 +2,7 @@
 .env
 ormconfig.json
 /coverage/
+backend-deploy.pem
 
 # compiled output
 /dist
