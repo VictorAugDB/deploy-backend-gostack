@@ -1,42 +1,14 @@
-*node_modules/*
+.idea/
+.vscode/
+node_modules/
+build/
+temp/
 .env
+coverage
 ormconfig.json
-/coverage/
+dist
 backend-deploy.pem
 backend-deploy.pem:Zone.Identifier
 
-# compiled output
-/dist
-/out-tsc
 tmp/*
 !tmp/.gitkeep
-# Only exists if Bazel was run
-/bazel-out
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/

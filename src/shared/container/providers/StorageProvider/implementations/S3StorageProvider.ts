@@ -5,7 +5,7 @@ import aws, { S3 } from 'aws-sdk';
 import uploadConfig from '@config/upload';
 import IStorageProvider from '../models/IStorageProvider';
 
-class S3StorageProvider implements IStorageProvider {
+class DiskStorageProvider implements IStorageProvider {
   private client: S3;
 
   constructor() {
@@ -50,4 +50,4 @@ class S3StorageProvider implements IStorageProvider {
   }
 }
 
-export default S3StorageProvider;
+export default DiskStorageProvider;

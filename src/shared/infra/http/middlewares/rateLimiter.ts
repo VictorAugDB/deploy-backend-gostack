@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import redis from 'redis';
-import { RateLimiterRedis } from 'rate-limiter-flexible';
 import AppError from '@shared/errors/AppError';
+import { RateLimiterRedis } from 'rate-limiter-flexible';
 
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST,
@@ -11,7 +11,7 @@ const redisClient = redis.createClient({
 
 const limiter = new RateLimiterRedis({
   storeClient: redisClient,
-  keyPrefix: 'middleware',
+  keyPrefix: 'ratelimit',
   points: 5,
   duration: 1,
 });

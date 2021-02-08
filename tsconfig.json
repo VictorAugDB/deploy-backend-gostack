@@ -1,32 +1,21 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "CommonJS",
     "outDir": "./dist",
-    "rootDir": "src",
+    "rootDir": "./src",
     "strict": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "allowJs": true,
     "paths": {
-      "@modules/*":["modules/*"],
-      "@config/*":["config/*"],
-      "@shared/*":["shared/*"]
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "exclude": [
-    ".idea",
-    "build",
-    "node_modules",
-    "typings/globals",
-    "typings/modules",
-    "coverage",
-    "jest.config.js",
-    "prettier.config.js"
-  ]
+    "forceConsistentCasingInFileNames": true,
+  }
 }

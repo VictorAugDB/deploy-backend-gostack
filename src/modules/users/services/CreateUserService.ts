@@ -1,10 +1,11 @@
-import User from '@modules/users/infra/typeorm/entities/User';
 import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
-import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 import IUsersRepository from '../repositories/IUsersRepository';
+import IHashProvider from '../providers/HashProvider/models/IHashProvider';
+
+import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
   name: string;
@@ -25,11 +26,11 @@ class CreateUserService {
     private cacheProvider: ICacheProvider,
   ) {}
 
-  async execute({ name, email, password }: IRequest): Promise<User> {
+  public async execute({ name, email, password }: IRequest): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
-      throw new AppError('Email adress already used');
+      throw new AppError('Email address already used.');
     }
 
     const hashedPassword = await this.hashProvider.generateHash(password);
@@ -41,8 +42,6 @@ class CreateUserService {
     });
 
     await this.cacheProvider.invalidatePrefix('providers-list');
-
-    // await this.usersRepository.save(user);
 
     return user;
   }

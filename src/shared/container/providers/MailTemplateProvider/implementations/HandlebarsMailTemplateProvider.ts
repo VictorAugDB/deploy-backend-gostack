@@ -4,7 +4,7 @@ import fs from 'fs';
 import IParseMailTemplateDTO from '../dtos/IParseMailTemplateDTO';
 import IMailTemplateProvider from '../models/IMailTemplateProvider';
 
-class HandlebarsTemplateProvider implements IMailTemplateProvider {
+class HandlebarsMailTemplateProvider implements IMailTemplateProvider {
   public async parse({
     file,
     variables,
@@ -19,4 +19,4 @@ class HandlebarsTemplateProvider implements IMailTemplateProvider {
   }
 }
 
-export default HandlebarsTemplateProvider;
+export default HandlebarsMailTemplateProvider;

@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
+
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
-
 import AuthenticateUserService from './AuthenticateUserService';
 
 let fakeUsersRepository: FakeUsersRepository;
@@ -18,6 +18,7 @@ describe('AuthenticateUser', () => {
       fakeHashProvider,
     );
   });
+
   it('should be able to authenticate', async () => {
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
@@ -43,7 +44,7 @@ describe('AuthenticateUser', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('should no be able to authenticate with wrong password', async () => {
+  it('should not be able to authenticate with wrong password', async () => {
     await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',

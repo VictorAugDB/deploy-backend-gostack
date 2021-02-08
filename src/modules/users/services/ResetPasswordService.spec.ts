@@ -1,14 +1,14 @@
-// import AppError from '@shared/errors/appError';
 import AppError from '@shared/errors/AppError';
+
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
-import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import FakeUserTokensRepository from '../repositories/fakes/FakeUserTokensRepository';
+import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import ResetPasswordService from './ResetPasswordService';
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeUserTokensRepository: FakeUserTokensRepository;
-let resetPassword: ResetPasswordService;
 let fakeHashProvider: FakeHashProvider;
+let resetPassword: ResetPasswordService;
 
 describe('ResetPasswordService', () => {
   beforeEach(() => {
@@ -22,10 +22,11 @@ describe('ResetPasswordService', () => {
       fakeHashProvider,
     );
   });
+
   it('should be able to reset the password', async () => {
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
-      email: 'joehoe@example.com',
+      email: 'johndoe@example.com',
       password: '123456',
     });
 
@@ -66,10 +67,10 @@ describe('ResetPasswordService', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('should not be able to reset password if passe more than 2 hours', async () => {
+  it('should not be able to reset password if passed more than 2 hours', async () => {
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
-      email: 'joehoe@example.com',
+      email: 'johndoe@example.com',
       password: '123456',
     });
 
