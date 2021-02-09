@@ -38,7 +38,7 @@ jobs:
           source: ".,!node_modules"
           target: "~/app/deploy-backend-gostack"
           
-      - name: Install dependencies on digital ocean
+      - name: run production scripts
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -47,25 +47,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app/deploy-backend-gostack
-            ls -la
-            
-      - name: Run migration on digital ocean
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd ~/app/deploy-backend-gostack
+            yarn
             ./node_modules/.bin/typeorm migration:run
-            
-      - name: Restart server on digital ocean
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          script: pm2 restart gobarber-api
+            pm2 restart gobarber-api
 
