@@ -47,7 +47,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app/deploy-backend-gostack
-            yarn
+            ls -la
             
       - name: Run migration on digital ocean
         uses: appleboy/scp-action@master
