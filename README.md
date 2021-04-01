@@ -32,6 +32,8 @@ docker run --name redis -p 6379:6379 -d -t redis:alpine
 ### Rode a aplicação com:
 > yarn dev:server
 
+## Regras de negócio da aplicação
+
 **RF**
 
 - O usuário deve poder recuperar sua senha informando o seu e-mail;
