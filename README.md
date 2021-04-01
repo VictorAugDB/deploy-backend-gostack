@@ -1,4 +1,36 @@
-# Recuperação de senha
+# Backend-Gostack
+
+## GoStack
+
+### Para rodar a aplicação e testar as funcionalidades é necessário seguir os passos abaixo.
+
+## Instruções para rodar o backend do app
+
+### Entre na pasta backend
+
+### Execute o comando
+> yarn
+#### ou
+> npm install
+
+### Crie um container postgres no docker.
+> docker run --name desafio-picode -e POSTGRES_PASSWORD=root -p 5434:5432 -d postgres
+> 
+### Crie um container redis no docker.
+docker run --name redis -p 6379:6379 -d -t redis:alpine
+
+### Crie um container mongo no docker
+ docker run --name mongodb -p 27017:27017 -d -t mongo
+
+### Crie um dabatase postgres com o nome gostack_gobarber
+
+### Copie o arquivo ormconfig.example.json e renomeie para ormconfig.json
+
+### Rode a migration com o comando:
+> yarn typeorm migration:run
+
+### Rode a aplicação com:
+> yarn dev:server
 
 **RF**
 
